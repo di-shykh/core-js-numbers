@@ -267,6 +267,17 @@ function getCube(num) {
  */
 function getFibonacciNumber(index) {
   // throw new Error('Not implemented');
+  let num1 = 0;
+  let num2 = 1;
+  let sum;
+  if (index === 0) return 0;
+  if (index === 1) return 1;
+  for (let i = 2; i <= index; i++) {
+    sum = num1 + num2;
+    num1 = num2;
+    num2 = sum;
+  }
+  return num2;
 }
 
 /**
@@ -280,8 +291,14 @@ function getFibonacciNumber(index) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN( /* n */ ) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  // throw new Error('Not implemented');
+  let sum = 0;
+  while (n) {
+    sum += n;
+    n--;
+  }
+  return sum;
 }
 
 /**
@@ -295,8 +312,12 @@ function getSumToN( /* n */ ) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits( /* num */ ) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  // throw new Error('Not implemented');
+  return num
+    .toString()
+    .split('')
+    .reduce((acc, curr) => acc + curr, 0);
 }
 
 /**
@@ -310,8 +331,9 @@ function getSumOfDigits( /* num */ ) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo( /* num */ ) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  // throw new Error('Not implemented');
+  return Number.isInteger(Math.log2(num));
 }
 
 /**
@@ -324,8 +346,9 @@ function isPowerOfTwo( /* num */ ) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine( /* num */ ) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  // throw new Error('Not implemented');
+  return Math.sin(num);
 }
 
 /**
@@ -339,8 +362,9 @@ function getSine( /* num */ ) {
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase( /* number, base */ ) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  // throw new Error('Not implemented');
+  return number.toString(base);
 }
 
 /**
@@ -353,8 +377,14 @@ function numberToStringInBase( /* number, base */ ) {
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential( /* number, fractionDigits */ ) {
-  throw new Error('Not implemented');
+function toExponential(number, fractionDigits) {
+  // throw new Error('Not implemented');
+  const arr = number.toString().split('');
+  const str =
+    `${arr[0]}.${number.toString().slice(1, fractionDigits - 1)}e` +
+    `+${arr.length}` -
+    1;
+  return str;
 }
 
 /**
